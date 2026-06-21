@@ -1,0 +1,8 @@
+{
+  "payment_id": "PMT-10001",
+  "customer_id": "CUST-5001",
+  "payment_type": "ACH",
+  "amount": 1250.75,
+  "currency": "USD",
+  "expected_status": "POSTED"
+}
