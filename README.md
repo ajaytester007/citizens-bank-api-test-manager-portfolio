@@ -1,30 +1,24 @@
-# Citizens Bank API Test Manager Portfolio
+# Citizens Bank API Test Manager Portfolio – Enhanced Functional Version
 
-## Portfolio Theme
-This repository demonstrates a Banking API Quality Engineering framework aligned to API Test Manager responsibilities across ReadyAPI/SOAPUI, REST/SOAP validation, ISO 20022 payment messaging, reconciliation testing, CI/CD quality gates, and release governance.
+Runnable Banking API Quality Engineering solution aligned to API Test Manager / ReadyAPI / Banking Payments roles.
 
-## Target Role Alignment
-- API Test Manager
-- ReadyAPI / SOAPUI Pro Automation
-- Banking APIs and Enterprise Integration Testing
-- Payments Modernization and ISO 20022
-- ACH, Fedwire, CHIPS, RTP, Wire Transfers
-- SQL Reconciliation and Financial Controls Validation
-- SIT/UAT, Release Readiness, Go/No-Go Support
-- CI/CD Quality Gates and Executive Reporting
+## L1–L5 Capability Coverage
 
-## Repository Sections
-| Area | Purpose |
-|---|---|
-| `readyapi/` | ReadyAPI/SOAPUI test suite design notes and sample structure |
-| `postman/` | REST API validation collection placeholders |
-| `sql/` | Reconciliation and data validation SQL samples |
-| `.github/workflows/` | CI/CD quality gate workflow |
-| `docs/wiki/` | Portfolio landing pages and wiki-style documentation |
-| `docs/runbooks/` | Release, regression, incident, and data validation runbooks |
-| `docs/playbooks/` | API testing, ISO 20022, reconciliation, and release playbooks |
-| `docs/capabilities/` | L1-L5 API quality engineering capabilities |
-| `docs/dashboards/` | Executive dashboard specs and metrics definitions |
+| Level | Capability | Functional Evidence |
+|---|---|---|
+| L1 | API Smoke & Availability | Health check, required-field rejection |
+| L2 | Contract & Schema Validation | JSON Schema validation, ISO 20022-style XML/XSD validation |
+| L3 | Banking Workflow Validation | Payment initiation → posting → settlement → status inquiry |
+| L4 | Reconciliation & Financial Controls | SQLite SQL controls for source vs settlement vs reporting |
+| L5 | Release Governance | Release-readiness score and Go/No-Go quality gate |
 
-## Candidate Positioning
-This portfolio supports a senior QA/API Test Manager profile with banking, payments, API automation, ReadyAPI/SOAPUI, reconciliation, and enterprise release governance experience.
+## Run Locally
+
+```bash
+pip install -r requirements.txt
+pytest -q
+```
+
+## Tools Represented
+
+ReadyAPI/SOAPUI design, Postman collection, Pytest, JSON Schema, XML/XSD, SQL reconciliation, GitHub Actions, CI/CD quality gates, release governance.

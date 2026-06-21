@@ -7,36 +7,24 @@ on:
     branches: [ main ]
 
 jobs:
-  api-quality-gate:
+  api-quality-gates:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v4
-
-      - name: Validate repository structure
-        run: |
-          test -f README.md
-          test -d docs
-          test -d sql
-          test -d readyapi
-          echo "Repository structure validated."
-
-      - name: Simulate API regression quality gate
-        run: |
-          echo "Running simulated API regression suite..."
-          echo "ReadyAPI/SOAPUI/Postman/REST Assured execution placeholder"
-          echo "API regression pass rate: 100%"
-
-      - name: Simulate reconciliation quality gate
-        run: |
-          echo "Running SQL reconciliation checks..."
-          echo "Transaction count match: PASS"
-          echo "Settlement amount match: PASS"
-          echo "Exception queue validation: PASS"
-
-      - name: Publish quality gate status
-        run: |
-          echo "Release Readiness: PASS"
-          echo "No Sev 1 / Sev 2 defects open"
-          echo "Go/No-Go Recommendation: GO"
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Run L1 Smoke Tests
+        run: pytest -q tests/l1_smoke
+      - name: Run L2 Contract Tests
+        run: pytest -q tests/l2_contract
+      - name: Run L3 Workflow Tests
+        run: pytest -q tests/l3_workflow
+      - name: Run L4 Reconciliation Tests
+        run: pytest -q tests/l4_reconciliation
+      - name: Run L5 Governance Tests
+        run: pytest -q tests/l5_governance

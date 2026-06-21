@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="CustomerCreditTransfer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="MessageId" type="xs:string"/>
+        <xs:element name="DebtorAccount" type="xs:string"/>
+        <xs:element name="CreditorAccount" type="xs:string"/>
+        <xs:element name="Amount" type="xs:decimal"/>
+        <xs:element name="Currency" type="xs:string"/>
+        <xs:element name="SettlementDate" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

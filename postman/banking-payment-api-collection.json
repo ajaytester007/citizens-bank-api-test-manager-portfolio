@@ -1,0 +1,33 @@
+{
+  "info": {
+    "name": "Banking Payment API Regression Portfolio",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/health"
+      }
+    },
+    {
+      "name": "Initiate ACH Payment",
+      "request": {
+        "method": "POST",
+        "url": "{{baseUrl}}/payments",
+        "body": {
+          "mode": "raw",
+          "raw": "{\"payment_id\": \"PMT-10001\", \"customer_id\": \"CUST-5001\", \"payment_type\": \"ACH\", \"amount\": 1250.75, \"currency\": \"USD\"}"
+        }
+      }
+    },
+    {
+      "name": "Get Payment Status",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/payments/PMT-10001/status"
+      }
+    }
+  ]
+}
